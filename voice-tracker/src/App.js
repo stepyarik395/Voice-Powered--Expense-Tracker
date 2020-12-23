@@ -16,13 +16,13 @@ const App = () => {
         style={{ height: '100vh' }}
       >
         <Grid item xs={12} sm={4}>
-          <Details />
+          <Details title="Income" />
         </Grid>
         <Grid item xs={12} sm={4}>
           Main
         </Grid>
         <Grid item xs={12} sm={4}>
-          <Details />
+          <Details title="Expanse" />
         </Grid>
       </Grid>
     </div>
