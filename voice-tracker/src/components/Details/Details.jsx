@@ -1,13 +1,14 @@
 import React from 'react'
 import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
-import useStyles from './style';
+import makeStyles from './style';
 import { Doughnut } from 'react-chartjs-2';
 
 
-const Details = () => {
-  const clasess = useStyles();
+  export const Details = () => {
+    const clasess = makeStyles();
+    
   return ( 
-    <Card className={classes.income}>
+    <Card className={clasess.income}>
       <CardHeader title="Income" />
       <CardContent>
         <Typography variant="h5">$50</Typography>
@@ -17,4 +18,4 @@ const Details = () => {
   )
 }
 
-export default Details
+

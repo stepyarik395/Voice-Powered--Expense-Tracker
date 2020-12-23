@@ -1,7 +1,7 @@
 import React from 'react';
 import { Details } from './components/Details/Details';
 import { Grid } from '@material-ui/core';
-import { CenterFocusStrongTwoTone } from '@material-ui/icons';
+
 const App = () => {
   return (
     <div>
