@@ -18,6 +18,9 @@ export const Main = () => {
           Try saying: Add income for $100 in Category Salary for Monday ...
         </Typography>
         <Divider />
+        <CardContent>
+          
+        </CardContent>
       </CardContent>
     </Card>
   )
