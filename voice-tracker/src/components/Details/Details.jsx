@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
-import makeStyles from './style';
+import makeStyles from './styles';
 import { Doughnut } from 'react-chartjs-2';
 
 
