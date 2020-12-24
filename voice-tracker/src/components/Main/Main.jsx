@@ -16,13 +16,13 @@ export const Main = () => {
         <Typography variant="h5" align="center">
           Total Balance $100
         </Typography>
-        <Typography style={{ lineHeight: '1.5em', marginTop: '20px' }} variant="subtitle">
+        <Typography style={{ lineHeight: '1.5em', marginTop: '20px' }} variant="subtitle1">
           {/* unfo card*/}
           Try saying: Add income for $100 in Category Salary for Monday ...
         </Typography>
         <Divider />
          <Form />
-        <CardContent classname={classes.cardContent}>
+        <CardContent className={classes.cardContent}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <List />
