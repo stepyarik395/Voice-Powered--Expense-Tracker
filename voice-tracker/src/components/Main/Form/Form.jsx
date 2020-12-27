@@ -54,8 +54,18 @@ const Form = () => {
             </FormControl>
           </Grid>
         <Grid item xs={12}>
-          <TextField type="number" label="amount" fullWidth />
-          <TextField type="date" label="Date" fullWidth />
+            <TextField type="number" label="amount" fullWidth value={formdate.amount} onChange={(e) => {
+              setFormDate({
+                ...formdate,
+                amount: e.target.value
+              })
+          }} />
+            <TextField type="date" label="Date" fullWidth value={formdate.date} onChange={(e) => {
+              setFormDate({
+                ...formdate,
+                date: e.target.value
+              })
+            }}  />
           <Button fullWidth color="primary" className={classes.button} variant="outlined">Create</Button>
           </Grid>
         </Grid>
