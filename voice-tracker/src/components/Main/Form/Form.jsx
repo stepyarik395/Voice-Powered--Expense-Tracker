@@ -1,9 +1,23 @@
 import React from 'react'
 import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import useStyles from './styles';
+import { useState } from 'react';
 
+
+
+const initialState = {
+  amount: '',
+  category: '',
+  type: 'Income',
+  date: new Date()
+}
 const Form = () => {
+ 
   const classes = useStyles();
+  const [formdate, setFormDate] = useState(initialState)
+  console.log(formdate);
+
+ 
   return (
     <div>
       <Grid container spacing={2}>
@@ -14,7 +28,12 @@ const Form = () => {
           <Grid item xs={12}>
             <FormControl fullWidth>
               <InputLabel>Type</InputLabel>
-              <Select>
+              <Select value={formdate.type} onChange={(e) => {
+                setFormDate({
+                  ...formdate,
+                  type: e.target.value
+                })
+              }}>
                 <MenuItem value="Income">Income</MenuItem>
                 <MenuItem value="Expense">Expense</MenuItem>
               </Select>
@@ -23,7 +42,12 @@ const Form = () => {
           <Grid item xs={12}>
             <FormControl fullWidth>
               <InputLabel>Category</InputLabel>
-              <Select>
+              <Select value={formdate.category} onChange={(e) => {
+                 setFormDate({
+                  ...formdate,
+                  category: e.target.value
+                })
+              }} >
                 <MenuItem value="business">Business</MenuItem>
                 <MenuItem value="salary">Salary</MenuItem>
               </Select>
