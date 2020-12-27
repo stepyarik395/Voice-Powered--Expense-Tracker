@@ -1,11 +1,14 @@
 const contextReducer = (state, action) => {
+  let transactions;
   switch (action.type) {
     case 'DELETE__TRANSACTION':
-      console.log('33333');
-      break;
+      transactions = state.filter((item) => item.id === action.payload);
+      return transactions;
     case 'ADD__TRANSACTION':
+      transactions = [action.payload, ...state];
+      return transactions;
     default:
-      break;
+      return state;
   }
 };
 
