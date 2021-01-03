@@ -1,9 +1,9 @@
 import React from 'react'
 import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import useStyles from './styles';
-import { useState } from 'react';
-
-
+import { useState , useContext } from 'react';
+import { ExpenseTrackerContext } from '../../../context/context'
+import { v4 as uuidv4 } from 'uuid'
 
 const initialState = {
   amount: '',
@@ -12,12 +12,19 @@ const initialState = {
   date: new Date()
 }
 const Form = () => {
- 
   const classes = useStyles();
   const [formdate, setFormDate] = useState(initialState)
-  console.log(formdate);
+  const { addTransaction } = useContext(ExpenseTrackerContext)
 
- 
+  const createTransaction = () => {
+    const transaction = {
+      ...formdate,
+      amount: Number(formdate.amount),
+      id: uuidv4()
+    }
+    addTransaction(transaction)
+    setFormDate(initialState)
+  }
   return (
     <div>
       <Grid container spacing={2}>
@@ -66,11 +73,10 @@ const Form = () => {
                 date: e.target.value
               })
             }}  />
-          <Button fullWidth color="primary" className={classes.button} variant="outlined">Create</Button>
+          <Button fullWidth color="primary" className={classes.button} variant="outlined" onClick={createTransaction}>Create</Button>
           </Grid>
         </Grid>
       </Grid>
-      
     </div>
   )
 }
