@@ -13,6 +13,7 @@ const initialState = {
   type: 'Income',
   date: formatDate(new Date())
 }
+console.log(initialState);
 const Form = () => {
   const classes = useStyles();
   const [formdate, setFormDate] = useState(initialState)
@@ -72,7 +73,7 @@ const Form = () => {
                 amount: e.target.value
               })
           }} />
-            <TextField type="date" label="Date" fullWidth value={formdate.date} onChange={(e) => {
+            <TextField type="date"  fullWidth value={formdate.date} onChange={(e) => {
               setFormDate({
                 ...formdate,
                 date: formatDate(e.target.value)

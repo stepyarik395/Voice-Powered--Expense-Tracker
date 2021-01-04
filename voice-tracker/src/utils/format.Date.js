@@ -10,6 +10,6 @@ const formatDate = (date) => {
   if (day.lenght < 2) {
     day = `0${day}`;
   }
-  return [year, month, day].join('-');
+  return [day, month, year].join('-');
 };
 export default formatDate;
