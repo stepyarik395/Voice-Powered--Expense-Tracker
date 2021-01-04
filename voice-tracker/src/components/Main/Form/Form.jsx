@@ -13,7 +13,6 @@ const initialState = {
   type: 'Income',
   date: formatDate(new Date())
 }
-console.log(initialState);
 const Form = () => {
   const classes = useStyles();
   const [formdate, setFormDate] = useState(initialState)
