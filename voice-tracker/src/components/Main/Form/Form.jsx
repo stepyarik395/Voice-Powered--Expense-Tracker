@@ -4,18 +4,21 @@ import useStyles from './styles';
 import { useState , useContext } from 'react';
 import { ExpenseTrackerContext } from '../../../context/context'
 import { v4 as uuidv4 } from 'uuid'
-import { incomeCategories, expenseCategories} from '../../../constants/categories'
+import { incomeCategories, expenseCategories } from '../../../constants/categories'
+import formatDate from '../../../utils/format.Date'
 
 const initialState = {
   amount: '',
   category: '',
   type: 'Income',
-  date: new Date()
+  date: formatDate(new Date())
 }
 const Form = () => {
   const classes = useStyles();
   const [formdate, setFormDate] = useState(initialState)
+  const selectedCategories = formdate.type === 'Income' ? incomeCategories : expenseCategories; 
   const { addTransaction } = useContext(ExpenseTrackerContext)
+
 
   const createTransaction = () => {
     const transaction = {
@@ -26,7 +29,7 @@ const Form = () => {
     addTransaction(transaction)
     setFormDate(initialState)
   }
-  const selectedCategories = formdate.type === 'Income' ? incomeCategories : expenseCategories 
+  
   return (
     <div>
       <Grid container spacing={2}>
@@ -43,8 +46,8 @@ const Form = () => {
                   type: e.target.value
                 })
               }}>
-                  <MenuItem value="business">Income</MenuItem>
-                <MenuItem value="salary">Expense</MenuItem>
+                <MenuItem value="Income">Income</MenuItem>
+                <MenuItem value="Expense">Expense</MenuItem>
             
               </Select>
             </FormControl>
@@ -72,7 +75,7 @@ const Form = () => {
             <TextField type="date" label="Date" fullWidth value={formdate.date} onChange={(e) => {
               setFormDate({
                 ...formdate,
-                date: e.target.value
+                date: formatDate(e.target.value)
               })
             }}  />
           <Button fullWidth color="primary" className={classes.button} variant="outlined" onClick={createTransaction}>Create</Button>
