@@ -16,7 +16,7 @@ const List = () => {
   // ];
   return (
     <MUIList dense={false} className={classes.list}>
-      {transactions.map((transactions, index) => {
+      {transactions.map((transactions) => {
         return(
           <Slide direction="down" in mountOnEnter unmountOnExit key={transactions.id}>
           <ListItem>
@@ -27,7 +27,7 @@ const List = () => {
             </ListItemAvatar>
             <ListItemText primary={transactions.category} secondary={`$${transactions.amount}-${transactions.date}`} />
             <ListItemSecondaryAction>
-                <IconButton edge="end" aria-label="delete" onClick={() => {
+                <IconButton edge="end" aria-label="delete" onClick={(e) => {
                   deleteTransaction(transactions.id)
                 }} >
                 <Delete />
