@@ -14,6 +14,7 @@ export const Provider = ({ children }) => {
   const addTransaction = (transaction) => {
     return dispatch({ type: 'ADD__TRANSACTION', payload: transaction });
   };
+  console.log(transactions);
 
   return (
     <ExpenseTrackerContext.Provider
