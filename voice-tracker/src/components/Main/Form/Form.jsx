@@ -4,6 +4,7 @@ import useStyles from './styles';
 import { useState , useContext } from 'react';
 import { ExpenseTrackerContext } from '../../../context/context'
 import { v4 as uuidv4 } from 'uuid'
+import { incomeCategories, expenseCategories} from '../../../constants/categories'
 
 const initialState = {
   amount: '',
@@ -25,6 +26,7 @@ const Form = () => {
     addTransaction(transaction)
     setFormDate(initialState)
   }
+  const selectedCategories = formdate.type === 'Income' ? incomeCategories : expenseCategories 
   return (
     <div>
       <Grid container spacing={2}>
@@ -41,8 +43,9 @@ const Form = () => {
                   type: e.target.value
                 })
               }}>
-                <MenuItem value="Income">Income</MenuItem>
-                <MenuItem value="Expense">Expense</MenuItem>
+                  <MenuItem value="business">Income</MenuItem>
+                <MenuItem value="salary">Expense</MenuItem>
+            
               </Select>
             </FormControl>
           </Grid>
@@ -55,8 +58,7 @@ const Form = () => {
                   category: e.target.value
                 })
               }} >
-                <MenuItem value="business">Business</MenuItem>
-                <MenuItem value="salary">Salary</MenuItem>
+                 {selectedCategories.map((c) => <MenuItem key={c.type} value={c.type}>{c.type}</MenuItem>)}
               </Select>
             </FormControl>
           </Grid>
