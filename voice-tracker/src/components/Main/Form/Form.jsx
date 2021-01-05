@@ -29,6 +29,7 @@ const Form = () => {
     addTransaction(transaction)
     setFormDate(initialState)
   }
+  console.log(formdate.date);
   
   return (
     <div>
@@ -48,7 +49,6 @@ const Form = () => {
               }}>
                 <MenuItem value="Income">Income</MenuItem>
                 <MenuItem value="Expense">Expense</MenuItem>
-            
               </Select>
             </FormControl>
           </Grid>
@@ -71,8 +71,8 @@ const Form = () => {
                 ...formdate,
                 amount: e.target.value
               })
-          }} />
-            <TextField type="date"  fullWidth value={formdate.date} onChange={(e) => {
+            }} />
+            <TextField type="date" fullWidth defaultValue={formdate.date} onChange={(e) => {
               setFormDate({
                 ...formdate,
                 date: formatDate(e.target.value)
