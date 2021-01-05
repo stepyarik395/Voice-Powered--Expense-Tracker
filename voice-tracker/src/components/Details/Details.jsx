@@ -12,7 +12,7 @@ import useTransactions from '../../useTransactions';
     <Card className={title ==='Income'? clasess.income : clasess.expense}>
       <CardHeader title={title} />
       <CardContent>
-        <Typography variant="h5">${total}</Typography>
+        <Typography variant="h5">${total}&nbsp;</Typography>
         <Doughnut data={chartDATA} />
       </CardContent>
    </Card>
