@@ -28,7 +28,6 @@ export const Main = () => {
               <List />
             </Grid>
           </Grid>
-          
         </CardContent>
       </CardContent>
     </Card>
