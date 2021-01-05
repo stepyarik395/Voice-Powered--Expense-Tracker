@@ -1,7 +1,7 @@
 import React from 'react'
 import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import useStyles from './styles';
-import { useState , useContext } from 'react';
+import { useState , useContext, useEffect } from 'react';
 import { ExpenseTrackerContext } from '../../../context/context'
 import { v4 as uuidv4 } from 'uuid'
 import { incomeCategories, expenseCategories } from '../../../constants/categories'
@@ -29,8 +29,7 @@ const Form = () => {
     addTransaction(transaction)
     setFormDate(initialState)
   }
-  console.log(formdate.date);
-  
+
   return (
     <div>
       <Grid container spacing={2}>
