@@ -7,13 +7,13 @@ import useTransactions from '../../useTransactions';
 
   export const Details = ({ title }) => {
     const clasess = makeStyles();
-    const {total, chartDATA} = useTransactions(title)
+    const {total, chartData} = useTransactions(title)
   return ( 
     <Card className={title ==='Income'? clasess.income : clasess.expense}>
       <CardHeader title={title} />
       <CardContent>
         <Typography variant="h5">${total}&nbsp;</Typography>
-        <Doughnut data={chartDATA} />
+        <Doughnut data={chartData} />
       </CardContent>
    </Card>
   )
