@@ -7,16 +7,15 @@ import {
 } from './constants/categories';
 
 const useTransactions = (title) => {
-  resetCategories();
-  const { transactions } = useContext(ExpenseTrackerContext);
-  const transactionsPerType = transactions.filter((t) => t.type === title);
+  resetCategories(); //RESET CATEGORIES
+  const { transactions } = useContext(ExpenseTrackerContext); // ТРАНЗАКЦИЯ ИЗ КОНТЕКСТА
+  console.log(transactions);
+  const transactionsPerType = transactions.filter((t) => t.type === title); // СРАВНИВАЕМ ТИП ТРАНЗАЦИИ С ПРОПОМ TITLE--- ЗАГОЛОВОК КАРТЫ
   const total = transactionsPerType.reduce(
     (acc, currVal) => (acc += currVal.amount),
     0
-  );
-  const categories = title === 'Income' ? incomeCategories : expenseCategories;
-  // console.log({ transactionsPerType, total, transactionsPerType });
-
+  ); // СЧИТЫВАЕМ ЗНАЧЕНИЕ AMOUNT
+  const categories = title === 'Income' ? incomeCategories : expenseCategories; // ХРАНИТ УСЛОВНОЕ ПРИСВАИВАНИЕ
   transactionsPerType.forEach((t) => {
     const category = categories.find((c) => c.type === t.category);
     if (category) category.amount += t.amount;
