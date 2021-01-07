@@ -5,7 +5,7 @@ import { Doughnut } from 'react-chartjs-2';
 import useTransactions from '../../useTransactions';
 
 
-  export const Details = ({ title }) => {
+export const Details = ({ title }) => {
     const clasess = makeStyles();
     const {total, chartData} = useTransactions(title)
   return ( 
