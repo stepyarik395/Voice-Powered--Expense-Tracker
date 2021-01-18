@@ -9,12 +9,13 @@ import {
 
 const useTransactions = (title) => {
   resetCategories();
-  const { transactions } = useContext(ExpenseTrackerContext);
-  const rightTransactions = transactions.filter((t) => t.type === title);
+  const { transactions } = useContext(ExpenseTrackerContext); //Берем из контекста транзации
+  const rightTransactions = transactions.filter((t) => t.type === title); // Фильтруем по условию (тип транзации равен === типу пропа title)
   const total = rightTransactions.reduce(
     (acc, currVal) => (acc += currVal.amount),
     0
-  );
+  ); // Пристваем в переменную сумму транзакций
+
   const categories = title === 'Income' ? incomeCategories : expenseCategories;
 
   rightTransactions.forEach((t) => {

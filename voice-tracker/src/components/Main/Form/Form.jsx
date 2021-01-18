@@ -29,7 +29,7 @@ const Form = () => {
     addTransaction(transaction)
     setFormDate(initialState)
   }
-
+  
   return (
     <div>
       <Grid container spacing={2}>
