@@ -7,14 +7,22 @@ import {
   resetCategories,
 } from './constants/categories';
 
-const useTransactions = (title) => {
+export const useTransactions = (title) => {
   resetCategories();
   const { transactions } = useContext(ExpenseTrackerContext); //Берем из контекста транзации
-  const rightTransactions = transactions.filter((t) => t.type === title); // Фильтруем по условию (тип транзации равен === типу пропа title)
+  const rightTransactions = transactions.filter((t) => {
+    if (t.type === 'Income') {
+      return t;
+    } else {
+      return t;
+    }
+    // return t.type === title;
+  }); // Фильтруем по условию (тип транзации равен === типу пропа title)
   const total = rightTransactions.reduce(
     (acc, currVal) => (acc += currVal.amount),
     0
   ); // Пристваем в переменную сумму транзакций
+  console.log(title);
   const categories = title === 'Income' ? incomeCategories : expenseCategories; //Присваиваем data данные в зависимости от пропа title
 
   rightTransactions.forEach((t) => {
@@ -37,5 +45,3 @@ const useTransactions = (title) => {
 
   return { filteredCategories, total, chartData };
 };
-
-export default useTransactions;
