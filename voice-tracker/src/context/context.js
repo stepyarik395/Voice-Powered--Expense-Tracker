@@ -5,14 +5,14 @@ const initialState = [];
 export const ExpenseTrackerContext = createContext(initialState);
 
 export const Provider = ({ children }) => {
-  const [transactions, dispatch] = useReducer(contextReducer, initialState);
+  const [transactions, dispatch] = useReducer(contextReducer, initialState); // Хранит масив Созданных Транзакций
 
   const deleteTransaction = (id) => {
-    return dispatch({ type: 'DELETE__TRANSACTION', payload: id });
+    dispatch({ type: 'DELETE__TRANSACTION', payload: id });
   };
 
   const addTransaction = (transaction) => {
-    return dispatch({ type: 'ADD__TRANSACTION', payload: transaction });
+    dispatch({ type: 'ADD__TRANSACTION', payload: transaction });
   };
 
   return (
