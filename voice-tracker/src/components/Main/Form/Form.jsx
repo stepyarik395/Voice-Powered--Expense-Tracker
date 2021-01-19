@@ -21,6 +21,16 @@ const Form = () => {
 
 
   const createTransaction = () => {
+    // if (Number.isNaN(Number(formdate.amount)) || !formdate.date.includes('-')) return;
+
+    // if (incomeCategories.map((iC) => iC.type).includes(formdate.category)) {
+    //   setFormDate({ ...formdate, type: 'Income' });
+    // } else if (expenseCategories.map((iC) => iC.type).includes(formdate.category)) {
+    //   setFormDate({ ...formdate, type: 'Expense' });
+    // }
+
+    // addTransaction({ ...formdate, amount: Number(formdate.amount), id: uuidv4() });
+    // setFormDate(initialState);
     const transaction = {
       ...formdate,
       amount: Number(formdate.amount),

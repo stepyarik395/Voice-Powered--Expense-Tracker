@@ -1,15 +1,15 @@
-const formatDate = (date) => {
+export default (date) => {
   const d = new Date(date);
   let month = `${d.getMonth() + 1}`;
-  const day = `${d.getDate()}`;
+  let day = `${d.getDate()}`;
   const year = d.getFullYear();
 
-  if (month.lenght < 2) {
+  if (month.length < 2) {
     month = `0${month}`;
   }
-  if (day.lenght < 2) {
+  if (day.length < 2) {
     day = `0${day}`;
   }
-  return [day, month, year].join('-');
+
+  return [year, month, day].join('-');
 };
-export default formatDate;

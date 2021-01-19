@@ -15,7 +15,6 @@ const useTransactions = (title) => {
     (acc, currVal) => (acc += currVal.amount),
     0
   ); // Пристваем в переменную сумму транзакций
-  console.log(rightTransactions);
 
   const categories = title === 'Income' ? incomeCategories : expenseCategories; //Присваиваем data данные в зависимости от пропа title
 
