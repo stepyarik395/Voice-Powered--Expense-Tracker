@@ -11,7 +11,6 @@ const useTransactions = (title) => {
   resetCategories();
   const { transactions } = useContext(ExpenseTrackerContext); //Берем из контекста транзации
   const rightTransactions = transactions.filter((t) => t.type === title); // Фильтруем по условию (тип транзации равен === типу пропа title)
-  console.log(title);
   const total = rightTransactions.reduce(
     (acc, currVal) => (acc += currVal.amount),
     0
