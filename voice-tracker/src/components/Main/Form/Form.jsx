@@ -31,17 +31,20 @@ const Form = () => {
     addTransaction(transaction)
     setFormDate(initialState)
   }
+  useEffect(() => {
+    if (segment) {
+      if (segment.intent.intent === 'add_expense') {
+        setFormDate({...formatDate, type:'Expanse'})
+      }
+    }
+  }, [segment])
   
   return (
     <div>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography gutterBottom align="center" variant="subtitle2">
-            {segment ? (
-              <div>
-                {segment.words.map((w)=> w.value).join(" ")}
-              </div>
-          ) :null}
+            {segment && segment.words.map((w)=> w.value).join(" ")}
           </Typography>
           <Grid item xs={12}>
             <FormControl fullWidth>
