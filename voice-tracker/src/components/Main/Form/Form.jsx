@@ -35,6 +35,12 @@ const Form = () => {
     if (segment) {
       if (segment.intent.intent === 'add_expense') {
         setFormDate({...formatDate, type:'Expanse'})
+      } else if (segment.intent.intent === 'add_income') {
+        setFormDate({...formatDate, type:'Income'})
+      } else if (segment.isFinal && segment.intent.intent === 'create_transaction') {
+        return createTransaction()
+      } else if (segment.isFinal && segment.intent.intent === 'cancel_transaction') {
+        return setFormDate(initialState)
       }
     }
   }, [segment])
