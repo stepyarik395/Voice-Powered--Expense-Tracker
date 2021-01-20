@@ -21,16 +21,6 @@ const Form = () => {
 
 
   const createTransaction = () => {
-    // if (Number.isNaN(Number(formdate.amount)) || !formdate.date.includes('-')) return;
-
-    // if (incomeCategories.map((iC) => iC.type).includes(formdate.category)) {
-    //   setFormDate({ ...formdate, type: 'Income' });
-    // } else if (expenseCategories.map((iC) => iC.type).includes(formdate.category)) {
-    //   setFormDate({ ...formdate, type: 'Expense' });
-    // }
-
-    // addTransaction({ ...formdate, amount: Number(formdate.amount), id: uuidv4() });
-    // setFormDate(initialState);
     const transaction = {
       ...formdate,
       amount: Number(formdate.amount),
@@ -57,7 +47,7 @@ const Form = () => {
                 })
               }}>
                 <MenuItem value="Income">Income</MenuItem>
-                <MenuItem value="Expense">Expense</MenuItem>
+                <MenuItem value="Expanse">Expense</MenuItem>
               </Select>
             </FormControl>
           </Grid>

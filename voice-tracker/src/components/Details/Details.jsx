@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
 import makeStyles from './styles';
 import { Doughnut } from 'react-chartjs-2';
-import { useTransactions } from '../../useTransactions';
+import useTransactions from '../../useTransactions';
 
 
 export const Details = ({ title}) => {
