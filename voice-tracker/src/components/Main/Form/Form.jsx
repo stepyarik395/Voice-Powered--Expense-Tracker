@@ -23,6 +23,7 @@ const Form = () => {
 
 
   const createTransaction = () => {
+    if (Number.isNaN(Number(formdate.amount)) || !formdate.date.includes('-')) return;
     const transaction = {
       ...formdate,
       amount: Number(formdate.amount),
