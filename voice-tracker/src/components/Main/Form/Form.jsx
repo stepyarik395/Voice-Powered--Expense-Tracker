@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { useSpeechContext } from '@speechly/react-client';
 import { incomeCategories, expenseCategories } from '../../../constants/categories'
 import formatDate from '../../../utils/format.Date'
+import PopapSnackbar from '../../Snackbar/Snackbar'
 
 const initialState = {
   amount: '',
@@ -20,6 +21,7 @@ const Form = () => {
   const selectedCategories = formdate.type === 'Income' ? incomeCategories : expenseCategories; 
   const { addTransaction } = useContext(ExpenseTrackerContext)
   const { segment } = useSpeechContext();
+  const [open, setOpen] = useState(false)
 
 
   const createTransaction = () => {
@@ -29,6 +31,7 @@ const Form = () => {
       amount: Number(formdate.amount),
       id: uuidv4()
     }
+    setOpen(true);
     addTransaction(transaction)
     setFormDate(initialState)
   }
@@ -72,6 +75,7 @@ const Form = () => {
   return (
     <div>
       <Grid container spacing={2}>
+        <PopapSnackbar open={open} setOpen={setOpen}/>
         <Grid item xs={12}>
           <Typography gutterBottom align="center" variant="subtitle2">
             {segment && segment.words.map((w)=> w.value).join(" ")}
