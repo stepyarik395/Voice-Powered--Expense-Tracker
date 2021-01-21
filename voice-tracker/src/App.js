@@ -18,8 +18,8 @@ const App = () => {
         container
         spacing={0}
         alignItems="center"
-        justyfy="center"
-        style={{ height: '100vh' }}
+        justify="center"
+        style={{ height: '94vh' }}
       >
         <Grid item xs={12} sm={4}>
           <Details title="Income" />

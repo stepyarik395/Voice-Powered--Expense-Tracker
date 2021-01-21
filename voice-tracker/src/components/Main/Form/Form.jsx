@@ -42,6 +42,29 @@ const Form = () => {
       } else if (segment.isFinal && segment.intent.intent === 'cancel_transaction') {
         return setFormDate(initialState)
       }
+      segment.entities.forEach((e) => {
+        const category = `${e.value.charAt(0)}${e.value.slice(1).toLowerCase()}`
+        switch (e.type) {
+          case 'amount':
+            setFormDate({ ...formdate, amount: e.value });
+            break;
+          case 'category':
+            if (incomeCategories.map((iC) => iC.type).includes(category)) {
+              setFormDate({ ...formdate, type: 'Income', category });
+            } else if ((expenseCategories.map((iC) => iC.type).includes(category))) {
+              setFormDate({ ...formdate, type: 'Expance', category });
+            }
+            break;
+          case 'date':
+            setFormDate({ ...formdate, date: e.value });
+            break;
+          default:
+            break;
+        }
+      });
+      if (segment.isFinal && formdate.amount && formdate.category && formdate.type && formdate.formatDate) {
+        createTransaction();
+      }
     }
   }, [segment])
   
