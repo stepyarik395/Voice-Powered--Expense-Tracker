@@ -86,7 +86,7 @@ const Form = () => {
                 })
               }}>
                 <MenuItem value="Income">Income</MenuItem>
-                <MenuItem value="Expanse">Expense</MenuItem>
+                <MenuItem value="Expanse">Expanse</MenuItem>
               </Select>
             </FormControl>
           </Grid>

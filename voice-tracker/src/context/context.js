@@ -14,12 +14,12 @@ export const Provider = ({ children }) => {
   const addTransaction = (transaction) => {
     dispatch({ type: 'ADD__TRANSACTION', payload: transaction });
   };
-  const balance = transactions.reduce((acc, currVal) => {
-    return (
-      currVal.type === 'Expance' ? acc - currVal.amount : acc + currVal.amount,
-      0
-    );
-  });
+  const balance = transactions.reduce(
+    (acc, currVal) =>
+      currVal.type === 'Expanse' ? acc - currVal.amount : acc + currVal.amount,
+    0
+  );
+  console.log(transactions);
   return (
     <ExpenseTrackerContext.Provider
       value={{
