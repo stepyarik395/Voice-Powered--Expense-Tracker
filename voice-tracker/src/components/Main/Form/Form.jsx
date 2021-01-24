@@ -23,7 +23,6 @@ const Form = () => {
   const { segment } = useSpeechContext();
   const [open, setOpen] = useState(false)
 
-console.log(formdate);
   const createTransaction = () => {
     if (Number.isNaN(Number(formdate.amount)) || !formdate.date.includes('-')) return;
     const transaction = {
@@ -70,7 +69,7 @@ console.log(formdate);
         createTransaction();
       }
     }
-  }, [segment])
+  }, [segment,formdate])
   
   return (
     <div>
@@ -120,7 +119,7 @@ console.log(formdate);
                 date: formatDate(e.target.value)
               })
             }}  />
-          <Button fullWidth disabled={formdate.category ==="" && formdate.amount === ""? true:false} color="primary" className={classes.button} variant="outlined" onClick={createTransaction}>Create</Button>
+          <Button fullWidth disabled={formdate.category ==="" && formdate.amount === "" ? true:false} color="primary" className={classes.button} variant="outlined" onClick={createTransaction}>Create</Button>
           </Grid>
         </Grid>
       </Grid>

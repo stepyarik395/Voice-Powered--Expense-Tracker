@@ -4,7 +4,7 @@
 }
 
 body {
-  background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(./assets/money.png);
+  background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(15, 2, 10), rgb(30, 5, 20), rgb(45, 7, 30), rgb(60, 9, 40), rgb(75, 11, 50), rgb(91, 14, 59), rgb(106, 16, 69), rgb(121, 18, 79), rgb(136, 20, 89), rgb(151, 23, 99), rgb(166, 25, 109));
   background-position: center;
   background-size: cover;
 }
