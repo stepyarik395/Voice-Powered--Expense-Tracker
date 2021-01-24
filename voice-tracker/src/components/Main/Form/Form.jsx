@@ -23,7 +23,7 @@ const Form = () => {
   const { segment } = useSpeechContext();
   const [open, setOpen] = useState(false)
 
-
+console.log(formdate);
   const createTransaction = () => {
     if (Number.isNaN(Number(formdate.amount)) || !formdate.date.includes('-')) return;
     const transaction = {
@@ -83,7 +83,7 @@ const Form = () => {
           <Grid item xs={12}>
             <FormControl fullWidth>
               <InputLabel>Type</InputLabel>
-              <Select value={formdate.type} onChange={(e) => {
+              <Select required value={formdate.type} onChange={(e) => {
                 setFormDate({
                   ...formdate,
                   type: e.target.value
@@ -120,7 +120,7 @@ const Form = () => {
                 date: formatDate(e.target.value)
               })
             }}  />
-          <Button fullWidth color="primary" className={classes.button} variant="outlined" onClick={createTransaction}>Create</Button>
+          <Button fullWidth disabled={formdate.category ==="" && formdate.amount === ""? true:false} color="primary" className={classes.button} variant="outlined" onClick={createTransaction}>Create</Button>
           </Grid>
         </Grid>
       </Grid>
